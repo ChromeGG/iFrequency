@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iFrequency - Error :(</title>
+</head>
+<body>
+<h1>Coś poszło nie tak :( Log błędu:</h1>
+<h2 th:object="${errorMessage}" th:text="${errorMessage.title}">Example Error title</h2>
+<h2>Możliwe rozwiązanie:</h2>
+<ul th:each="solution:${errorMessage.possibleSolutions}">
+    <li th:text="${solution}">Solution</li>
+</ul>
+</body>
+</html>

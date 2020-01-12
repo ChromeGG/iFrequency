@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl-Pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Statystki - iFrekwencja</title>
+</head>
+<body>
+<!--<h1 th:object="${user}">Twoje statystyki od <span th:text="${user.sinceWhen}">RRRR-MM-DD</span> do <span-->
+<!--        th:text="${user.untilWhen}">RRRR-MM-DD</span>:</h1>-->
+<table class="table table-striped table-dark">
+    <tr>
+        <th>Nazwa przedmiotu</th>
+        <th>obecny</th>
+        <th>zwolniony obecny</th>
+        <th>nieobecny</th>
+        <th>nieobecny usprawiedliwiony</th>
+        <th>zwolniony</th>
+        <th>spóźniony</th>
+        <th>zajęcia nie odbyły sie</th>
+        <th>% obecności</th>
+    </tr>
+    <tr th:each="subject:${subjectsList}">
+        <td th:text="${subject.name}">nazwa</td>
+        <td th:text="${subject.present}">1</td>
+        <td th:text="${subject.exemptPresent}">2</td>
+        <td th:text="${subject.absent}">3</td>
+        <td th:text="${subject.absentExcused}">4</td>
+        <td th:text="${subject.exemption}">5</td>
+        <td th:text="${subject.belated}">6</td>
+        <td th:text="${subject.notHappen}">7</td>
+        <td th:text="${subject.frequency}">8</td>
+    </tr>
+
+</table>
+</body>
+</html>
