@@ -7,9 +7,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AppApplication {
 
     public static void main(String[] args) {
-//        System.setProperty("phantomjs.binary.path", "lib/PhantomJS-2.1.1-win64x/phantomjs.exe");
-//        System.setProperty("phantomjs.binary.path", "lib/phantomjs-2.1.1-linux-x86_64/bin/phantomjs");
+        setPhantomJS();
         SpringApplication.run(AppApplication.class, args);
+    }
+
+    private static void setPhantomJS() {
+        String osName = System.getProperty("os.name").toLowerCase();
+
+        if (osName.contains("windows")) {
+            System.setProperty("phantomjs.binary.path", "lib/PhantomJS-2.1.1-win64x/phantomjs.exe");
+        } else {
+            System.setProperty("phantomjs.binary.path", "lib/phantomjs-2.1.1-linux-x86_64/bin/phantomjs");
+        }
     }
 
 }
